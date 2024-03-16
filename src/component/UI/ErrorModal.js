@@ -4,13 +4,14 @@ import  Card from './Card';
 import Button from "./Button";
 import classes from  './ErrorModal.module.css';
 
-const Backdrop=props=>
+const Backdrop=(props)=>
 {
-    <div className={classes.backdrop} onClick={props.onConfirm}/>
+   return <div className={classes.backdrop} onClick={props.onConfirm}/>
 };
 
-const ModalOverlay=props=>
-{
+const ModalOverlay=(props)=>
+{ 
+    return(
     <Card className={classes.modal}>
         <header className={classes.header}>
             <h2>{props.title}</h2>
@@ -26,7 +27,8 @@ const ModalOverlay=props=>
         </footer>
 
     </Card>
-}
+    );
+};
 
 const ErrorModal=(props)=>
 {
@@ -40,7 +42,7 @@ return (
         message={props.message} 
          onConfirm={props.onConfirm}
          />,
-         document.getElementById("modal-root")
+         document.getElementById("overlay-root")
          )}
     </React.Fragment>
 );
